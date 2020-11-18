@@ -1,5 +1,5 @@
 const express = require('express');
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server-express');
 const faker = require('faker');
 const times = require('lodash.times');
 const random = require('lodash.random');
@@ -20,20 +20,28 @@ const server = new ApolloServer({
 
   db.sequelize.sync().then(() => {
     // populate author table with dummy data
-    db.author.bulkCreate(
-        times(10, () => ({
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName()
-        }))
-    );
-    // populate post table with dummy data
-    db.post.bulkCreate(
-        times(10, () => ({
-        title: faker.lorem.sentence(),
-        content: faker.lorem.paragraph(),
-        authorId: random(1, 10)
-        }))
-    );
+    // db.author.bulkCreate(
+    //     times(10, () => ({
+    //     firstName: faker.name.firstName(),
+    //     lastName: faker.name.lastName()
+    //     }))
+    // );
+    // // populate post table with dummy data
+    // db.post.bulkCreate(
+    //     times(10, () => ({
+    //         title: faker.lorem.sentence(),
+    //         content: faker.lorem.paragraph(),
+    //         authorId: random(1, 10)
+    //     }))
+    // );
+    //   db.comment.bulkCreate(
+    //     times(10, () => ({
+    //         content: faker.lorem.sentence(),
+    //         postId: random(1, 10),
+    //         authorId: random(1, 10)
+    //     }))
+    //   );
+    
 
     app.listen({ port: 4000 }, () =>
         console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)

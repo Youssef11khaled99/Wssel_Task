@@ -20,6 +20,11 @@ module.exports =  `
     postId: ID!
   }
 
+  type Query {
+    author(id: ID!): Author
+    authors: [Author!]!
+  }
+
   type Mutation {
     createAuthor(firstName: String!, lastName:String): Author!
     updateAuthor(id: ID!, firstName: String!, lastName:String): [Int!]!
