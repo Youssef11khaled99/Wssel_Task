@@ -21,6 +21,7 @@ module.exports =  `
   }
 
   type Query {
+    posts: [Post!]!
     author(id: ID!): Author
     authors: [Author!]!
   }
