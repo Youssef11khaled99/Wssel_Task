@@ -24,6 +24,7 @@ module.exports =  `
     posts: [Post!]!
     author(id: ID!): Author
     authors: [Author!]!
+    comments: [Comment!]!
   }
 
   type Mutation {

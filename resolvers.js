@@ -4,10 +4,12 @@ module.exports = {
     },
     Post: {
         author: (parent, args, { db }, info) => db.author.findOne({ where: { id: parent.authorId } }),
+        comments: (parent, args, { db }, info) => db.comment.findAll({ where: { id: parent.id } }),
     },  
     Query: {
         posts: (parent, args, { db }, info) => db.post.findAll(),
         authors: (parent, args, { db }, info) => db.author.findAll(),
+        comments: (parent, args, { db }, info) => db.comment.findAll(),
         author: (parent, { id }, { db }, info) => db.author.findByPk(id) 
     },
     Mutation: {
