@@ -10,6 +10,7 @@ module.exports = {
         posts: (parent, args, { db }, info) => db.post.findAll(),
         authors: (parent, args, { db }, info) => db.author.findAll(),
         comments: (parent, args, { db }, info) => db.comment.findAll(),
+        post: (parent, { id }, { db }, info) => db.post.findByPk(id),
         author: (parent, { id }, { db }, info) => db.author.findByPk(id) 
     },
     Mutation: {
@@ -34,6 +35,14 @@ module.exports = {
                 id: id
             }
         }),
+
+        commentPost: (parent, { postId, authorId, content }, { db }) =>
+            db.comment.create({
+                content: content,
+                postId: postId,
+                authorId: authorId,
+        }),
+
         createPost: (parent, { title, content, authorId }, { db }) =>
             db.post.create({
             title: title,
