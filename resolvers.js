@@ -1,5 +1,12 @@
 module.exports = {
+    Author: {
+        posts: (parent, args, { db }, info) => db.post.findAll({ where: { authorId: parent.id } }),
+    },
+    Post: {
+        author: (parent, args, { db }, info) => db.author.findOne({ where: { id: parent.authorId } }),
+    },  
     Query: {
+        posts: (parent, args, { db }, info) => db.post.findAll(),
         authors: (parent, args, { db }, info) => db.author.findAll(),
         author: (parent, { id }, { db }, info) => db.author.findByPk(id) 
     },
