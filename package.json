@@ -1,0 +1,37 @@
+{
+  "name": "wssel_task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client-start": "parcel ./app/public/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youssef11khaled99/Wssel_Task.git"
+  },
+  "author": "Youssef Khaled",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youssef11khaled99/Wssel_Task/issues"
+  },
+  "homepage": "https://github.com/Youssef11khaled99/Wssel_Task#readme",
+  "dependencies": {
+    "@apollo/client": "^3.2.7",
+    "apollo-server": "^2.19.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "graphql": "^15.4.0",
+    "lodash": "^4.17.20",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "react": "^17.0.1",
+    "sequelize": "^6.3.5",
+    "subscriptions-transport-ws": "^0.9.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "parcel-bundler": "^1.12.4"
+  }
+}
